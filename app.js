@@ -22,7 +22,7 @@ const instilizationDbAndServer =  async () => {
     const PORT = process.env.PORT || 5000;
 
      app.listen(PORT, () => {
-        console.log("server is hosting at 5000");
+        console.log(`server is hosting at ${PORT}`);
     });
     } catch(e) {
         console.log(e.message);
@@ -85,7 +85,8 @@ app.post("/product",async (req,res) => {
   let {name,price,description,image,category,stock} = req.body;
   let q  = `insert into products(name,price,description,image,category,stock) values('${name}','${price}','${description}','${image}','${category}','${stock}')`;
   await db.run(q);
-  res.send(200);
+  res.send("200");
+    
 })
 
 app.get("/product/", async (req,res) => {
